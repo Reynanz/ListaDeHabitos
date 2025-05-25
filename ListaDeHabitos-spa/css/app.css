@@ -1,0 +1,29 @@
+.main { 
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    transform: translateY(+25%);
+    border-radius: 35px; 
+    color: white;
+    background: linear-gradient(145deg, #a265f1a2, #5f3dafd8);
+} 
+body { 
+    background-color: #196e88;
+} 
+
+a { 
+    text-align: center; 
+    color: #7C6B6B
+} 
+.newbtn{
+    transition: all 0.2s ease-in-out;
+}
+.newbtn:hover{
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0; }
+    
+    100% {opacity: 1; transform: translateY(0);}
+}
