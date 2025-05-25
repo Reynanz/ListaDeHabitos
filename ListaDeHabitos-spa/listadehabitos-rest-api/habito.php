@@ -1,8 +1,11 @@
 <?php 
+
     //Função que converte os parâmetros de requisições HTTP, POST e PUT em um Hábito
     function f_parametro_to_habito() {
+
         // Obtém o conteúdo da requisição
         $dados = file_get_contents("php://input");
+
         // Converte o Json para array e retorna
         $habito = json_decode($dados, true);
         return $habito;
@@ -14,6 +17,7 @@
             $usuario = "root";
             $senha = "";
             $bancodedados = "Listadehabitos";
+
             // Cria uma conexão com o banco de dados
             $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
 
@@ -32,10 +36,12 @@
 
         //Caso haja parâmetros o loop irá rodar, do contrário será ignorado
         foreach ($parametrosGet as $param) {
+
             //Se não for o primeiro parâmetro concatena o AND à variável $querryWhere
             if (!$primeiroparametro) {
                 $querryWhere .= " AND "; 
             }
+
             //Se for o primeiro concatena o parâmetro e seu valor à variável $querryWhere e define a variável $primeiroparametro como false
             $primeiroparametro = false;
             $querryWhere .= $param."= '".$_GET[$param]."'"; 
@@ -74,6 +80,7 @@
             echo json_encode($jsonHabitoArray);
 
         } else {
+
             //Se a query não retornou registros, devolve um array Json vazio 
             echo json_encode(Array());
         }
@@ -143,6 +150,7 @@
     //Exclui um hábito existente
     function f_delete_habito() {
         $id = $_GET["id"];
+
         //Armazena uma query na variável $sql
         $sql = "DELETE FROM habito WHERE id = $id";
 
@@ -161,18 +169,22 @@
 
     switch ($metodo) {
         case "GET":
+
             //Consultar
             f_select_habito();
             break;
         case "POST":
+
             //Inserir
             f_insert_habito();
             break;
         case "PUT":
+
             //Atualizar
             f_update_habito();
             break;
         case "DELETE":
+
             //Excluir
             f_delete_habito();
             break; 

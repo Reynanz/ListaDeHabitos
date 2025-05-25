@@ -1,3 +1,4 @@
+<!-- Formulário para cadastrar novo hábito -->
 <div class="main container my-5 p-5 bg-light text-center shadow">
     <h1 class="display-4">Cadastrar Hábitos</h1>
     <p class="lead"><label>Hábito: <input class="form-control" type="text" id="nome" name="nome" autofocus ng-model="nome"></label></p>
@@ -5,6 +6,7 @@
     <a class="text-decoration-none" href="#/listadehabitos"><button class="newbtn btn btn-outline-dark">Voltar</button></a>
 </div>
 
+<!-- Lista de hábitos exibida em tabela -->
 <div class="container my-5 p-5 bg-light text-center rounded shadow">
     <div class="table-responsive">
         <table class="table table-striped table-hover">
@@ -14,7 +16,9 @@
             </thead>
 
             <tbody>
-                 <tr ng-repeat="habito in habitos | orderBy:'status'">
+                
+                 <!-- Itera e exibe hábitos ordenados por nome -->
+                 <tr ng-repeat="habito in habitos | orderBy:'nome'">
                     <td>{{habito.nome}}</td> 
                 </tr>
             </tbody>

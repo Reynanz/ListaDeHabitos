@@ -1,9 +1,11 @@
+<!-- Cabeçalho da lista de hábitos -->
 <div class="main container my-5 p-5 bg-light text-center shadow">
     <h1 class="display-4">Lista de Hábitos📝</h1>
     <p class="lead">Cadastre aqui os hábitos que você tem que 
 vencer para melhorar sua vida!💪🏼</p>
 </div>
 
+<!-- Tabela com hábitos e ações -->
 <div class="container my-5 p-5 bg-light text-center rounded shadow">
     <div class="table-responsive">
         <table class=" table table-striped table-hover">
@@ -15,9 +17,15 @@ vencer para melhorar sua vida!💪🏼</p>
             </thead>
 
             <tbody> 
+
+                 <!-- Percorre os hábitos ordenando por nome -->
                  <tr ng-repeat="habito in habitos | orderBy:'nome'" class="w-auto">
-                    <td>{{habito.nome}}</td> 
+                    <td>{{habito.nome}}</td>
+
+                     <!-- Botão para marcar hábito como vencido (visível só se status 'A') -->
                     <td><button class="newbtn btn btn-outline-success" ng-click="vencerHabito(habito)" ng-style="{'visibility': habito.status == 'A' ? 'visible' : 'hidden'  }">Vencer</button></td>
+
+                    <!-- Botões para desistir (status 'A') ou retomar hábito (status 'V') -->
                     <td>
                         <button class="newbtn btn btn-outline-danger" ng-click="desistirHabito(habito)" ng-style="{'visibility': habito.status == 'A' ? 'visible' : 'hidden'  }">Desistir</button>
                         <button class="newbtn btn btn-outline-primary" ng-click="retomarHabito(habito)" ng-style="{'visibility': habito.status == 'V' ? 'visible' : 'hidden'  }">Retomar</button>
@@ -28,6 +36,7 @@ vencer para melhorar sua vida!💪🏼</p>
     </div>
 </div>
 
+<!-- Rodapé com chamada para inserir novos hábitos -->
 <div class="main container my-5 p-5 bg-light text-center shadow"> 
     <p class="lead">Melhore sua vida!💥</p>
     <p class="lead">Cadastre aqui os seus maus hábitos!</p>

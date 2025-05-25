@@ -14,6 +14,8 @@ a {
     text-align: center; 
     color: #7C6B6B
 } 
+
+/* Botão com efeito de escala ao passar o mouse */
 .newbtn{
     transition: all 0.2s ease-in-out;
 }
@@ -22,6 +24,7 @@ a {
     transition: all 0.2s ease-in-out;
 }
 
+/* Keyframe para efeito de fade + subida */
 @keyframes fadeIn {
     0% {opacity: 0; }
     
