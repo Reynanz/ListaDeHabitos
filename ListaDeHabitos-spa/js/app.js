@@ -29,7 +29,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
             $scope.habitos[indice] = resposta.data;
         });
     }
-    
+
     // Retoma hábito (status = "A")
     $scope.retomarHabito = function(habito){
         indice = $scope.habitos.indexOf(habito);
