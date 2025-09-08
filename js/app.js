@@ -10,7 +10,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
 
     // Carrega hábitos da API se ainda não estiverem carregados
     if (habitos.habitos.length == 0) {
-        $http.get("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php").then(function(resposta){
+        $http.get("http://localhost/listadehabitos-rest-api/habito.php").then(function(resposta){
             for (indice in resposta.data){
                 habitos.habitos = resposta.data
                 $scope.habitos = habitos.habitos;
@@ -25,7 +25,7 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
     $scope.vencerHabito = function(habito){
         indice = $scope.habitos.indexOf(habito);
         habito.status = "V";
-        $http.put("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php", habito).then(function(resposta){
+        $http.put("http://localhost/listadehabitos-rest-api/habito.php", habito).then(function(resposta){
             $scope.habitos[indice] = resposta.data;
         });
     }
@@ -34,14 +34,14 @@ app.controller("listadehabitos", ["$scope", "$http", "habitos", function($scope,
     $scope.retomarHabito = function(habito){
         indice = $scope.habitos.indexOf(habito);
         habito.status = "A";
-        $http.put("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php", habito).then(function(resposta){
+        $http.put("http://localhost/listadehabitos-rest-api/habito.php", habito).then(function(resposta){
             $scope.habitos[indice] = resposta.data;
         });
     }
 
     // Remove hábito da lista (desistir)
     $scope.desistirHabito = function(habito){
-        $http.delete("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php",{params: {id: habito.id}}).then(function(resposta){
+        $http.delete("http://localhost/listadehabitos-rest-api/habito.php",{params: {id: habito.id}}).then(function(resposta){
             indice = $scope.habitos.indexOf(habito);
             $scope.habitos.splice(indice, 1);
        });
@@ -55,7 +55,7 @@ app.controller("novohabito", ["$scope", "$http", "habitos", function($scope, $ht
 
     // Carrega hábitos da API se ainda não estiverem carregados
     if (habitos.habitos.length == 0) { 
-        $http.get("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php").then(function(resposta){
+        $http.get("http://localhost/listadehabitos-rest-api/habito.php").then(function(resposta){
             for (indice in resposta.data){
                 habitos.habitos = resposta.data
                 $scope.habitos = habitos.habitos;
@@ -70,7 +70,7 @@ app.controller("novohabito", ["$scope", "$http", "habitos", function($scope, $ht
         if(nome == ""){
             return;
         }
-        $http.post("http://localhost/ListaDeHabitos-spa/listadehabitos-rest-api/habito.php", {nome: nome}).then(function(resposta){
+        $http.post("http://localhost/listadehabitos-rest-api/habito.php", {nome: nome}).then(function(resposta){
             $scope.habitos.push(resposta.data);
             $scope.nome = "";
         })
