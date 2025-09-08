@@ -13,10 +13,10 @@
 
     //Função para conectar ao banco de dados
     function conectar() {
-            $servidor = "Localhost";
+            $servidor = "localhost";
             $usuario = "root";
             $senha = "";
-            $bancodedados = "Listadehabitos";
+            $bancodedados = "listadehabitos";
 
             // Cria uma conexão com o banco de dados
             $conexao = new mysqli($servidor, $usuario, $senha, $bancodedados);
